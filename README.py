@@ -16,7 +16,7 @@
 # 
 # ### `timeshift`
 # 
-# `TimeShift` é uma aplicação para sistemas Linux que oferece uma maneira simples e eficaz de fazer backups e restaurar o sistema para um estado anterior em caso de falhas ou erros. Ele cria snapshots do sistema em intervalos regulares, permitindo a recuperação rápida e fácil do sistema para um estado estável anterior. Com uma interface amigável, os usuários podem agendar backups automáticos e gerenciar facilmente os snapshots.
+# `TimeShift` é uma aplicação para sistemas `Linux` que oferece uma maneira simples e eficaz de fazer _backups_ e restaurar o sistema para um estado anterior em caso de falhas ou erros. Ele cria _snapshots_ do sistema em intervalos regulares, permitindo a recuperação rápida e fácil do sistema para um estado estável anterior. Com uma interface amigável, os usuários podem agendar _backups_ automáticos e gerenciar facilmente os _snapshots_.
 
 # ## 1. Como configurar/instalar/usar o `timeshift` no `Linux Ubuntu` [1][3]
 # 
@@ -32,29 +32,30 @@
 # 
 #     2.3 Remover pacotes que foram automaticamente instalados para satisfazer as dependências de outros pacotes e que não são mais necessários. Digite o seguinte comando: `sudo apt autoremove -y`
 # 
-#     2.4 Buscar as atualizações disponíveis para os pacotes que estão instalados em seu sistema. Digite o seguinte comando e pressione `Enter`: `sudo apt update -y`
+#     2.4 Buscar as atualizações disponíveis para os pacotes que estão instalados em seu sistema. Digite o seguinte comando e pressione `Enter`: `sudo apt update`
 # 
-#     2.5 Para ver a lista de pacotes a serem atualizados, digite o seguinte comando e pressione `Enter`:  `sudo apt list --upgradable`
+#     2.5 **Corrigir pacotes quebrados**: Isso atualizará a lista de pacotes disponíveis e tentará corrigir pacotes quebrados ou com dependências ausentes: `sudo apt --fix-broken install`
 # 
-#     2.6 Realmente atualizar os pacotes instalados para as suas versões mais recentes, com base na última vez que você executou `sudo apt update -y`. Digite o seguinte comando e pressione `Enter`: `sudo apt full-upgrade -y`
+#     2.6 Limpar o `cache` do gerenciador de pacotes `apt`. Especificamente, ele remove todos os arquivos de pacotes (`.deb`) baixados pelo `apt` e armazenados em `/var/cache/apt/archives/`. Digite o seguinte comando: `sudo apt clean` 
+#     
+#     2.7 Para ver a lista de pacotes a serem atualizados, digite o seguinte comando e pressione `Enter`:  `sudo apt list --upgradable`
 # 
-#     2.7 Remover pacotes que foram automaticamente instalados para satisfazer as dependências de outros pacotes e que não são mais necessários. Digite o seguinte comando: `sudo apt autoremove -y`
-# 
-#     2.8 Remover pacotes `.deb` antigos ou duplicados do cache local. É útil para liberar espaço, pois remove apenas os pacotes que não podem mais ser baixados (ou seja, versões antigas de pacotes que foram atualizados). Digite o seguinte comando: `sudo apt autoclean`
+#     2.8 Realmente atualizar os pacotes instalados para as suas versões mais recentes, com base na última vez que você executou `sudo apt update`. Digite o seguinte comando e pressione `Enter`: `sudo apt full-upgrade -y`
+#     
 
-# Para instalar o `Timeshift` no Linux Ubuntu através do Terminal Emulator, você pode seguir os seguintes passos:
+# Para instalar o `Timeshift` no `Linux Ubuntu` através do `Terminal Emulator`, você pode seguir os seguintes passos:
 # 
-# 1. **Abra o Terminal**: Você pode fazer isso pressionando `Ctrl+Alt+T` ou procurando por `"Terminal"` no menu de aplicações.
+# 1. **Abra o `Terminal Emulator`**: Você pode fazer isso pressionando `Ctrl+Alt+T` ou procurando por `"Terminal"` no menu de aplicações.
 # 
 # 2. **Instalar o `btrfs-tools` no `Ubuntu`, você pode usar o seguinte comando no Terminal**: `sudo apt install btrfs-progs`
 #     
 #     O pacote `btrfs-progs` contém as ferramentas de gerenciamento do sistema de arquivos BTRFS. Note que `btrfs-tools` é um nome de pacote mais antigo; em versões mais recentes do `Ubuntu`, ele foi renomeado para `btrfs-progs`. Certifique-se de que seu sistema está atualizado antes de instalar o pacote.
 # 
-# 3. **Adicione o repositório PPA do Timeshift**: Antes de instalar o `Timeshift`, é recomendável adicionar o repositório PPA para garantir que você está instalando a versão mais recente. Execute o seguinte comando: `sudo add-apt-repository -y ppa:teejee2008/timeshift`
+# 3. **Adicione o repositório PPA do `Timeshift`**: Antes de instalar o `Timeshift`, é recomendável adicionar o repositório PPA para garantir que você está instalando a versão mais recente. Execute o seguinte comando: `sudo add-apt-repository -y ppa:teejee2008/timeshift`
 # 
 # 4. **Atualize a lista de pacotes**: Após adicionar o repositório, atualize a lista de pacotes disponíveis: `sudo apt update`
 # 
-# 5. **Instale o `Timeshift`**: Agora, instale o programa com o comando: `sudo apt install `Timeshift` -y`
+# 5. **Instale o `Timeshift`**: Agora, instale o programa com o comando: `sudo apt install timeshift -y`
 # 
 # 6. **Configure o `Timeshift`**: Após a instalação, você pode configurar o `Timeshift` executando-o pela primeira vez. Para abrir o `Timeshift` pelo terminal, digite: `sudo timeshift-gtk`
 # 
@@ -105,13 +106,13 @@
 # 
 #     - **`Monthly` (Mensal)**: Determina quantos snapshots mensais você deseja manter.
 # 
-#     - **Weekly (Semanal): Determina quantos snapshots semanais você deseja manter.
+#     - **Weekly (Semanal)**: Determina quantos snapshots semanais você deseja manter.
 # 
-#     - **Daily (Diário): Determina quantos snapshots diários você deseja manter.
+#     - **Daily (Diário)**: Determina quantos snapshots diários você deseja manter.
 # 
-#     - **Hourly (Horário): Determina quantos snapshots horários você deseja manter.
+#     - **Hourly (Horário)**: Determina quantos snapshots horários você deseja manter.
 # 
-#         - **Boot: Determina quantos snapshots são criados a cada inicialização do sistema que você deseja manter.
+#         - **Boot**: Determina quantos snapshots são criados a cada inicialização do sistema que você deseja manter.
 # 
 # - **`Keep` (Manter)**: Ao lado de cada frequência, há um número com botões de mais e menos que permite aumentar ou diminuir a quantidade de snapshots a manter para cada nível.
 # 
@@ -200,27 +201,48 @@
 # 
 # A escolha do formato da data e hora é útil para facilitar a identificação dos snapshots, especialmente se você precisar encontrar um específico baseado na data e hora em que foi criado. Ao configurar isso, você personaliza como as datas serão mostradas em todos os snapshots listados dentro do Timeshift, de acordo com sua preferência.
 
-# ### 2. Código completo para configurar/instalar/usar
+# ### 1.1 Código completo para configurar/instalar/usar
 # 
 # Para configurar/instalar/usar o `timeshift` no `Linux Ubuntu` sem precisar digitar linha por linha, você pode seguir estas etapas:
 # 
-# 1. Abra o terminal. Você pode fazer isso pressionando: `Ctrl + Alt + T`
+# 1. Abra o `Terminal Emulator`. Você pode fazer isso pressionando: `Ctrl + Alt + T`
 # 
 # 2. Digite o seguinte comando e pressione `Enter`:
 # 
 #     ```
 #     sudo apt clean
-#     sudo apt autoclean -y
+#     sudo apt autoclean
 #     sudo apt autoremove -y
-#     sudo apt update -y
-#     sudo apt uptoremove -y
-#     sudo apt autoclean -y
+#     sudo apt update
+#     sudo apt --fix-broken install
+#     sudo apt clean
+#     sudo apt list --upgradable
+#     sudo apt full-upgrade -y
 #     sudo add-apt-repository -y ppa:teejee2008/timeshift
 #     sudo apt install `Timeshift` -y
 #     sudo apt update -y
 #     sudo timeshift-gtk
 #     ```
 # 
+
+# ## 2. Desinstalar o `Timeshift` pelo `Terminal Emulator`
+# 
+# Para desinstalar o `Timeshift` pelo `Terminal Emulator` no `Linux Ubuntu`, você pode seguir estes passos:
+# 
+# 1. **Abra o `Terminal Emulator`**: Você pode fazer isso pressionando `Ctrl+Alt+T` ou procurando por `"Terminal"` no menu de aplicações.
+# 
+# 2. **Desinstalar o `Timeshift`**: Execute o seguinte comando para remover o `Timeshift` do seu sistema: `sudo apt remove timeshift`
+# 
+# 3. **Limpar pacotes não necessários**: Após remover o Timeshift, pode ser uma boa ideia limpar os pacotes que não são mais necessários, o que pode ajudar a liberar espaço no disco. Execute o comando: `sudo apt autoremove`
+# 
+# 4. **Remover configurações residuais**: Se você deseja também remover as configurações e dados locais que foram usados pelo `Timeshift`, você pode executar:
+# 
+# ```
+# sudo rm -rf /etc/timeshift
+# sudo rm -rf /var/log/timeshift
+# ```
+# 
+# Esses comandos removerão o `Timeshift` e suas configurações, liberando espaço e removendo as configurações que foram personalizadas para o uso no seu sistema.
 
 # ## Referências
 # 
