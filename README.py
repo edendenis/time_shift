@@ -247,7 +247,7 @@
 
 # ## Referências
 # 
-# [1] OPENAI. ***Instalar `Timeshift` via Terminal..*** Disponível em: <https://chat.openai.com/c/4b997bc7-af50-402f-9211-99d29fdd10a8> (texto adaptado). Acessado em: 23/04/2023 17:11.
+# [1] OPENAI. ***Instalar `Timeshift` via terminal.*** Disponível em: <https://chat.openai.com/c/4b997bc7-af50-402f-9211-99d29fdd10a8> (texto adaptado). Acessado em: 23/04/2023 17:11.
 # 
 # [2] OPENAI. ***Vs code: editor popular.*** Disponível em: <https://chat.openai.com/c/b640a25d-f8e3-4922-8a3b-ed74a2657e42> (texto adaptado). Acessado em: 23/04/2024 17:10.
 # 
